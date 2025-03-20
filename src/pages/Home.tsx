@@ -9,11 +9,8 @@ const Home = () => {
       {isSuccess && !isLoading && data?.feed?.entry?.length
         ? data?.feed?.entry.map((podcast) => (
             <PodcastCard
-              author={podcast?.["im:artist"].label}
-              img={podcast?.["im:image"][2].label}
-              title={podcast?.title.label}
+              podcast={podcast}
               key={podcast?.id?.attributes["im:id"]}
-              id={podcast?.id?.attributes["im:id"]}
             />
           ))
         : null}

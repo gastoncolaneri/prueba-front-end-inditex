@@ -4,10 +4,10 @@ import { RoutesConfig } from "./routes";
 
 function App() {
   return (
-    <>
+    <div className="min-h-[95vh]">
       <Header />
       <RoutesConfig />
-    </>
+    </div>
   );
 }
 

@@ -40,6 +40,6 @@ export interface PodcastResults {
 }
 
 export interface PodcastDetailsResponse {
-  resultCount: string;
-  results: PodcastResults;
+  resultCount: number;
+  results: PodcastResults[];
 }
