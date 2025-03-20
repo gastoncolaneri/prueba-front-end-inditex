@@ -39,7 +39,7 @@ export interface PodcastResults {
   hasITunesExtras: boolean;
 }
 
-export interface PodcastDetails {
+export interface PodcastDetailsResponse {
   resultCount: string;
   results: PodcastResults;
 }

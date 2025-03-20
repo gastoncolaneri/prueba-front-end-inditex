@@ -1,4 +1,4 @@
 import { PodcastListResponse } from "./podcastList";
-import { PodcastDetails } from "./podcastDetails";
+import { PodcastDetailsResponse } from "./podcastDetails";
 
-export type { PodcastListResponse, PodcastDetails };
+export type { PodcastListResponse, PodcastDetailsResponse };

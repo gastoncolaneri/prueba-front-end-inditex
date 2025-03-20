@@ -1,3 +1,4 @@
-import { fetchPodcastData } from "./fetchPodcastData";
+import { fetchPodcastList } from "./fetchPodcastList";
+import { fetchPodcastDetails } from "./fetchPodcastDetails";
 
-export { fetchPodcastData };
+export { fetchPodcastList, fetchPodcastDetails };
