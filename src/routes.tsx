@@ -3,9 +3,12 @@ import { EpisodeDetails, Home, PodcastDetails } from "./pages";
 
 const RoutesConfig = () => (
   <Routes>
-    <Route path="/" element={<Home />} />
-    <Route path="/podcast/:idPodcast" element={<PodcastDetails />} />
-    <Route path="/podcast/1/episode/:idEpisode" element={<EpisodeDetails />} />
+    <Route index path="/" element={<Home />} />
+    <Route index path="/podcast/:idPodcast" element={<PodcastDetails />} />
+    <Route
+      path="/podcast/:idPodcast/episode/:idEpisode"
+      element={<EpisodeDetails />}
+    />
   </Routes>
 );
 

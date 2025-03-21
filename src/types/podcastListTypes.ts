@@ -95,8 +95,3 @@ export interface Feed {
 export interface PodcastListResponse {
   feed: Feed;
 }
-
-export interface PodcastSelected {
-  podcastSelected: Podcast | undefined;
-  setPodcastSelected: (value: Podcast) => void;
-}

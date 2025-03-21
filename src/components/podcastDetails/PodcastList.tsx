@@ -1,12 +1,12 @@
-import { PodcastResults } from "../../types/podcastDetails";
 import { PodcastListItem } from "./PodcastListItem";
+import { EpisodeDetails } from "../../types/podcastDetailsTypes";
 
 const PodcastList = ({
   episodesCount,
   episodeList,
 }: {
   episodesCount: number;
-  episodeList: PodcastResults[];
+  episodeList: EpisodeDetails[];
 }) => {
   return (
     <div className="mt-15 col-span-2 md:col-span-4 xl:col-span-9 basis-4/5 sm:basis-3/4 md:basis-4/5">
@@ -28,11 +28,7 @@ const PodcastList = ({
           <tbody>
             {episodeList?.map((episode) => {
               return episode?.wrapperType !== "track" ? (
-                <PodcastListItem
-                  title={episode?.trackName}
-                  date={episode?.releaseDate}
-                  duration={episode?.trackTimeMillis}
-                />
+                <PodcastListItem episode={episode} key={episode?.episodeGuid} />
               ) : null;
             })}
           </tbody>

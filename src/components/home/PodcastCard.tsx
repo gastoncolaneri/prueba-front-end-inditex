@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router";
-import { Podcast } from "../../types/podcastList";
+import { Podcast } from "../../types/podcastListTypes";
 import { usePodcastSelected } from "../../store/podcastStore";
 
 const PodcastCard = ({ podcast }: { podcast: Podcast }) => {
@@ -15,7 +15,7 @@ const PodcastCard = ({ podcast }: { podcast: Podcast }) => {
 
   const handleOnClick = async () => {
     setPodcastSelected(podcast);
-    return navigate(`/podcast/${idPodcast}`);
+    return navigate(`podcast/${idPodcast}`);
   };
   return (
     <div

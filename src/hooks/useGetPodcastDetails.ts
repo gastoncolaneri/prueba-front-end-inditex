@@ -3,7 +3,7 @@ import { fetchPodcastDetails } from "../api";
 
 const useGetPodcastDetails = (id: string) => {
   return useQuery({
-    queryKey: ["podcastDetails"],
+    queryKey: ["podcastDetails", id],
     queryFn: async () => await fetchPodcastDetails(id),
   });
 };
