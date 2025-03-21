@@ -6,6 +6,10 @@ async function fetchPodcastList() {
 
   const response = await fetch(PODCAST_LIST_URL);
 
+  if (!response.ok) {
+    throw new Error(`Failed to fetch podcast list: ${response.statusText}`);
+  }
+
   return (await response.json()) as PodcastListResponse;
 }
 

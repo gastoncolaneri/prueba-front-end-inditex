@@ -1,6 +1,6 @@
 import moment from "moment";
 import { useNavigate } from "react-router";
-import { EpisodeDetails } from "../../types/podcastDetailsTypes";
+import { EpisodeDetails } from "../../types/podcastDetails";
 import { usePodcastSelected } from "../../store/podcastStore";
 
 const PodcastListItem = ({ episode }: { episode: EpisodeDetails }) => {

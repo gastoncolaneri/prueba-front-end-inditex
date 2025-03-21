@@ -1,5 +1,5 @@
 import { PodcastListItem } from "./PodcastListItem";
-import { EpisodeDetails } from "../../types/podcastDetailsTypes";
+import { EpisodeDetails } from "../../types/podcastDetails";
 
 const PodcastList = ({
   episodesCount,
