@@ -11,21 +11,21 @@ const PodcastCard = ({ podcast }: { podcast: Podcast }) => {
   const imgPodcast = podcast?.["im:image"]?.[2]?.label;
   const namePodcast = podcast?.["im:name"]?.label;
   const artistPodcast = podcast?.["im:artist"]?.label;
-  const idPodcast = podcast?.id?.attributes["im:id"];
+  const podcastId = podcast?.id?.attributes["im:id"];
 
   const handleOnClick = async () => {
     setPodcastSelected(podcast);
-    return navigate(`podcast/${idPodcast}`);
+    return navigate(`podcast/${podcastId}`);
   };
   return (
     <div
-      className="flex flex-col box-border border-1 border-gray-200 shadow-md relative h-55 w-70 mt-15  hover:shadow-xl hover:cursor-pointer transition delay-50 hover:-translate-y-1 "
+      className="flex flex-col box-border border-1 border-gray-200 shadow-md relative w-70 mt-15  hover:shadow-xl hover:cursor-pointer transition delay-50 hover:-translate-y-1 "
       role="button"
       onClick={() => void handleOnClick()}
     >
       {imgPodcast && (
         <img
-          className="h-30 w-30 rounded-full sm:mx-0 border-1 border-gray-300 self-center absolute bottom-40 left-20 "
+          className="h-30 w-30 rounded-full sm:mx-0 border-1 border-gray-300 self-center absolute -top-15 left-20 "
           src={imgPodcast}
           alt={namePodcast}
         />

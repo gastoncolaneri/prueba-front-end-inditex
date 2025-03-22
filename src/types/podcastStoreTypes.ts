@@ -10,4 +10,6 @@ export interface PodcastSelected {
   setEpisodeSelected: (value: EpisodeDetails) => void;
   isFiltering: boolean;
   setIsFiltering: (value: boolean) => void;
+  isLoading: boolean;
+  setIsLoading: (value: boolean) => void;
 }

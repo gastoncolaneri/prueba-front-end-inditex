@@ -9,8 +9,10 @@ const Home = () => {
   const podcastListFiltered = usePodcastSelected(
     (state) => state.podcastListFiltered
   );
-
+  const setIsLoading = usePodcastSelected((state) => state.setIsLoading);
   const isFiltering = usePodcastSelected((state) => state.isFiltering);
+
+  setIsLoading(isLoading);
 
   const podcastList = () => {
     if (isFiltering) {

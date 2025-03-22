@@ -4,14 +4,12 @@ import { PodcastInfoCard } from "../components/podcastDetails/PodcastInfoCard";
 import { useGetPodcastDetails } from "../hooks/useGetPodcastDetails";
 import { usePodcastSelected } from "../store/podcastStore";
 import { useGetPodcastList } from "../hooks/useGetPodcastList";
-import { EpisodeInfoCard } from "../components/episodeDetails/EpisodeInfoCard";
+import { EpisodeInfoCard } from "../components/episodeDetails/episodeInfoCard";
 
 const EpisodeDetails = () => {
-  const { idPodcast, idEpisode } = useParams();
-
-  const { data: podcastDetails } = useGetPodcastDetails(idPodcast || "");
+  const { podcastId, episodeId } = useParams();
+  const { data: podcastDetails } = useGetPodcastDetails(podcastId || "");
   const { data: podcastInfo } = useGetPodcastList();
-
   const setPodcastSelected = usePodcastSelected(
     (state) => state.setPodcastSelected
   );
@@ -22,16 +20,16 @@ const EpisodeDetails = () => {
 
   useEffect(() => {
     const podcast = podcastList?.find(
-      (podcast) => podcast?.id?.attributes?.["im:id"] === idPodcast
+      (podcast) => podcast?.id?.attributes?.["im:id"] === podcastId
     );
     const episode = podcastDetails?.results?.find(
-      (episode) => episode?.episodeGuid === idEpisode
+      (episode) => episode?.episodeGuid === episodeId
     );
     if (episode) setEpisodeSelected(episode);
     if (podcast) setPodcastSelected(podcast);
   }, [
-    idEpisode,
-    idPodcast,
+    episodeId,
+    podcastId,
     podcastDetails?.results,
     podcastList,
     setEpisodeSelected,

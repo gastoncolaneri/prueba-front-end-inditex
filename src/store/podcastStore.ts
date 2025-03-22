@@ -20,6 +20,10 @@ const usePodcastSelected = create<PodcastSelected>((set) => ({
   setIsFiltering: (value: boolean) => {
     set(() => ({ isFiltering: value }));
   },
+  isLoading: false,
+  setIsLoading: (value: boolean) => {
+    set(() => ({ isLoading: value }));
+  },
 }));
 
 export { usePodcastSelected };

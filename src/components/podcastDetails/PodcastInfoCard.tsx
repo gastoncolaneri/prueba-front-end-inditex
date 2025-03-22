@@ -1,18 +1,18 @@
-import {  useNavigate, useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import { usePodcastSelected } from "../../store/podcastStore";
+import { ROUTES_ENUM } from "../../constants/routesEnum";
 
 const PodcastInfoCard = () => {
   const navigate = useNavigate();
-
-  const { idPodcast } = useParams();
-
+  const { podcastId } = useParams();
   const podcastSelected = usePodcastSelected((state) => state.podcastSelected);
+
   const imgPodcast = podcastSelected?.["im:image"]?.[2]?.label;
   const namePodcast = podcastSelected?.["im:name"]?.label;
   const artistPodcast = podcastSelected?.["im:artist"]?.label;
 
   const handleOnClick = async () => {
-    return navigate(`/podcast/${idPodcast}`);
+    return navigate(`/${ROUTES_ENUM.PODCAST_DETAIL_ROUTE}/${podcastId}`);
   };
 
   return (

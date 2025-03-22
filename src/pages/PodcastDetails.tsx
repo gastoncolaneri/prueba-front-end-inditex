@@ -1,30 +1,31 @@
+import { useEffect } from "react";
 import { useParams } from "react-router";
 import { useGetPodcastDetails } from "../hooks/useGetPodcastDetails";
 import { PodcastInfoCard } from "../components/podcastDetails/PodcastInfoCard";
 import { PodcastList } from "../components/podcastDetails/PodcastList";
 import { useGetPodcastList } from "../hooks/useGetPodcastList";
 import { usePodcastSelected } from "../store/podcastStore";
-import { useEffect } from "react";
 
 const PodcastDetails = () => {
-  const params = useParams();
-  const { data: podcastDetails } = useGetPodcastDetails(
-    params?.idPodcast || ""
+  const { podcastId } = useParams();
+  const { data: podcastDetails, isLoading } = useGetPodcastDetails(
+    podcastId || ""
   );
   const { data: podcastInfo } = useGetPodcastList();
-
   const setPodcastSelected = usePodcastSelected(
     (state) => state.setPodcastSelected
   );
+  const setIsLoading = usePodcastSelected((state) => state.setIsLoading);
 
   const podcastList = podcastInfo?.feed?.entry;
 
   useEffect(() => {
+    setIsLoading(isLoading);
     const podcast = podcastList?.find(
-      (podcast) => podcast?.id?.attributes?.["im:id"] === params?.idPodcast
+      (podcast) => podcast?.id?.attributes?.["im:id"] === podcastId
     );
     if (podcast) setPodcastSelected(podcast);
-  }, [params?.idPodcast, podcastList, setPodcastSelected]);
+  }, [isLoading, podcastId, podcastList, setIsLoading, setPodcastSelected]);
 
   return podcastList?.length &&
     podcastDetails &&

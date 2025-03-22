@@ -2,6 +2,7 @@ import moment from "moment";
 import { useNavigate } from "react-router";
 import { EpisodeDetails } from "../../types/podcastDetails";
 import { usePodcastSelected } from "../../store/podcastStore";
+import { ROUTES_ENUM } from "../../constants/routesEnum";
 
 const PodcastListItem = ({ episode }: { episode: EpisodeDetails }) => {
   const navigate = useNavigate();
@@ -18,7 +19,7 @@ const PodcastListItem = ({ episode }: { episode: EpisodeDetails }) => {
 
   const handleOnClick = async () => {
     setEpisodeSelected(episode);
-    return navigate(`episode/${id}`);
+    return navigate(`${ROUTES_ENUM.EPISODE_DETAIL_ROUTE}/${id}`);
   };
 
   return (
